@@ -5,9 +5,15 @@ def main():
   num_list = get_user_input()
   average=calc_average(num_list)
   min_max=calc_min_max_temperature(num_list)
-  print(average)
+  ascending=sort_temperature(num_list)
+  median=calc_median_temperature(ascending)
   print("Minimum & Maximum temperature is ")
   print(min_max)
+  print(ascending)
+  print("Average is")
+  print (average)
+  print("Median is ")
+  print(median)
   
 
 def display_main_menu():
@@ -27,6 +33,18 @@ def calc_min_max_temperature(num_list):
   countmin_max=[min(num_list),max(num_list)]
   return countmin_max
 
+def sort_temperature(num_list):
+  num_list.sort()
+  return num_list
+
+def calc_median_temperature(ascending):
+  median_position=int((len(ascending)+1)/2)
+  if len(ascending)%2!=0: 
+    return(ascending[median_position-1])
+  elif len(ascending)%2==0:
+    eveno=(ascending[median_position-1] + ascending[median_position])/2
+    return(eveno)
+  
 if __name__ == "__main__":
  main()
 
